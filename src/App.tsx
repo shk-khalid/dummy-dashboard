@@ -247,7 +247,7 @@ function App() {
         );
       case 'actions':
         return (
-          <button className="p-2 hover:bg-gray-100 rounded-lg">
+          <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-lg">
             <MoreHorizontal className="w-4 h-4 text-gray-400" />
           </button>
         );
@@ -267,7 +267,7 @@ function App() {
               <input 
                 type="text" 
                 placeholder="Search"
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="h-10 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
           </div>
@@ -293,54 +293,75 @@ function App() {
       <div className="p-6">
         <div className="bg-white rounded-lg shadow-sm">
           {/* Dashboard Header */}
-          <div className="p-6 border-b border-gray-200">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Team Dashboard</h1>
-                <p className="text-gray-600 mt-1">Manage and view general details, certificates, and skills for your team members</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm text-gray-600">Share</span>
-                  <div className="flex -space-x-2">
-                    <img className="w-6 h-6 rounded-full border-2 border-white" src="https://images.pexels.com/photos/3866555/pexels-photo-3866555.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" alt="" />
-                    <img className="w-6 h-6 rounded-full border-2 border-white" src="https://images.pexels.com/photos/3866549/pexels-photo-3866549.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" alt="" />
-                    <img className="w-6 h-6 rounded-full border-2 border-white" src="https://images.pexels.com/photos/3866554/pexels-photo-3866554.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" alt="" />
-                    <div className="w-6 h-6 rounded-full bg-green-500 border-2 border-white flex items-center justify-center">
-                      <span className="text-xs text-white font-medium">+2</span>
-                    </div>
-                  </div>
-                </div>
-                <button className="flex items-center space-x-2 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <Filter className="w-4 h-4" />
-                  <span className="text-sm">Filters</span>
-                  <span className="bg-gray-100 text-xs px-2 py-1 rounded-full">1</span>
-                </button>
-                <button className="flex items-center space-x-2 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <Grid3X3 className="w-4 h-4" />
-                  <span className="text-sm">Column Views</span>
-                </button>
-                <button className="flex items-center space-x-2 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <Plus className="w-4 h-4" />
-                  <span className="text-sm">Add Column</span>
-                </button>
-                <button className="flex items-center space-x-2 px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-                  <Download className="w-4 h-4" />
-                  <span className="text-sm">Export to Excel</span>
-                </button>
-              </div>
-            </div>
-            
-            {/* Filter Tag */}
-            <div className="flex items-center space-x-2">
-              <div className="flex items-center space-x-2 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">
-                <span className="text-sm">Certificate : CCP</span>
-                <button className="hover:bg-yellow-200 rounded-full p-0.5">
-                  <X className="w-3 h-3" />
-                </button>
-              </div>
-            </div>
-          </div>
+<div className="p-6 border-b border-gray-200">
+  {/* Make this a column by default, row on lg */}
+  <div className="space-y-4 lg:space-y-0 lg:flex lg:items-center lg:justify-between">
+    
+    {/* Title stays full-width on md↓, left on lg↑ */}
+    <div className="text-center sm:text-left">
+      <h1 className="text-2xl font-bold text-gray-900">Team Dashboard</h1>
+      <p className="text-gray-600 mt-1">
+        Manage and view general details, certificates, and skills for your team members
+      </p>
+    </div>
+
+    {/* Buttons: wrap on md↓, no-wrap on lg↑ */}
+    <div className="flex flex-wrap lg:flex-nowrap items-center justify-center sm:justify-start gap-3">
+      <div className="flex items-center space-x-2">
+  <span className="text-sm text-gray-600">Share</span>
+  <div className="flex -space-x-2">
+    <img
+      className="w-6 h-6 rounded-full border-2 border-white"
+      src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+      alt="User 1"
+    />
+    <img
+      className="w-6 h-6 rounded-full border-2 border-white"
+      src="https://images.pexels.com/photos/3866549/pexels-photo-3866549.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop"
+      alt="User 2"
+    />
+    <img
+      className="w-6 h-6 rounded-full border-2 border-white"
+      src="https://images.pexels.com/photos/2474307/pexels-photo-2474307.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+      alt="User 3"
+    />
+    <div className="w-6 h-6 rounded-full bg-green-500 border-2 border-white flex items-center justify-center">
+      <span className="text-xs text-white font-medium">+2</span>
+    </div>
+  </div>
+</div>
+
+      <button className="flex items-center justify-center space-x-2 h-10 px-3 border border-gray-300 rounded-lg hover:bg-gray-50 whitespace-nowrap">
+        <Filter className="w-4 h-4" />
+        <span className="text-sm">Filters</span>
+        <span className="bg-gray-100 text-xs px-2 py-0.5 rounded-full">1</span>
+      </button>
+      <button className="flex items-center justify-center space-x-2 h-10 px-3 border border-gray-300 rounded-lg hover:bg-gray-50 whitespace-nowrap">
+        <Grid3X3 className="w-4 h-4" />
+        <span className="text-sm">Column Views</span>
+      </button>
+      <button className="flex items-center justify-center space-x-2 h-10 px-3 border border-gray-300 rounded-lg hover:bg-gray-50 whitespace-nowrap">
+        <Plus className="w-4 h-4" />
+        <span className="text-sm">Add Column</span>
+      </button>
+      <button className="flex items-center justify-center space-x-2 h-10 px-3 bg-green-600 text-white rounded-lg hover:bg-green-700 whitespace-nowrap">
+        <Download className="w-4 h-4" />
+        <span className="text-sm">Export to Excel</span>
+      </button>
+    </div>
+  </div>
+
+  {/* Filter Tag stays as-is */}
+  <div className="flex items-center justify-center sm:justify-start space-x-2 mt-4">
+    <div className="flex items-center space-x-2 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">
+      <span className="text-sm">Certificate : CCP</span>
+      <button className="hover:bg-yellow-200 rounded-full p-1 flex items-center justify-center">
+        <X className="w-3 h-3" />
+      </button>
+    </div>
+  </div>
+</div>
+
 
           {/* Table */}
           <div className="overflow-x-auto">
@@ -348,7 +369,7 @@ function App() {
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
                   <th className="px-6 py-3 text-left">
-                    <input type="checkbox" className="rounded border-gray-300" />
+                    <input type="checkbox" className="w-4 h-4 rounded border-gray-300" />
                   </th>
                   {columns.map((column) => (
                     <th
@@ -371,7 +392,7 @@ function App() {
                 {teamData.map((member) => (
                   <tr key={member.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4">
-                      <input type="checkbox" className="rounded border-gray-300" />
+                      <input type="checkbox" className="w-4 h-4 rounded border-gray-300" />
                     </td>
                     {columns.map((column) => (
                       <td key={column.id} className="px-6 py-4 whitespace-nowrap">
@@ -391,7 +412,7 @@ function App() {
               <select 
                 value={rowsPerPage}
                 onChange={(e) => setRowsPerPage(Number(e.target.value))}
-                className="border border-gray-300 rounded px-2 py-1 text-sm"
+                className="h-8 border border-gray-300 rounded px-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value={20}>20</option>
                 <option value={50}>50</option>
@@ -401,17 +422,17 @@ function App() {
             </div>
             
             <div className="flex items-center space-x-2">
-              <button className="p-2 rounded hover:bg-gray-100">
+              <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100">
                 <ChevronLeft className="w-4 h-4" />
               </button>
-              <button className="px-3 py-1 rounded hover:bg-gray-100 text-sm">1</button>
-              <button className="px-3 py-1 rounded hover:bg-gray-100 text-sm">2</button>
-              <button className="px-3 py-1 rounded bg-blue-600 text-white text-sm">3</button>
+              <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 text-sm">1</button>
+              <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 text-sm">2</button>
+              <button className="w-8 h-8 flex items-center justify-center rounded bg-blue-600 text-white text-sm">3</button>
               <span className="text-sm text-gray-500">...</span>
-              <button className="px-3 py-1 rounded hover:bg-gray-100 text-sm">12</button>
-              <button className="px-3 py-1 rounded hover:bg-gray-100 text-sm">13</button>
-              <button className="px-3 py-1 rounded hover:bg-gray-100 text-sm">14</button>
-              <button className="p-2 rounded hover:bg-gray-100">
+              <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 text-sm">12</button>
+              <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 text-sm">13</button>
+              <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 text-sm">14</button>
+              <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100">
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
