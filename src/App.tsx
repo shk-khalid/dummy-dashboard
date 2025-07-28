@@ -18,117 +18,13 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-interface TeamMember {
-  id: string;
-  name: string;
-  avatar: string;
-  certificate: string;
-  expiryDate: string;
-  issuedDate: string;
-  status: 'Active' | 'Expiring Soon' | 'Expired';
-  manager: string;
-  managerAvatar: string;
-  managerInitials?: string;
-}
+import { TeamMember, teamData } from './data';
 
 interface Column {
   id: string;
   label: string;
   key: keyof TeamMember | 'actions';
 }
-
-const teamData: TeamMember[] = [
-  {
-    id: '1',
-    name: 'John Doe',
-    avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    certificate: 'AWS Solutions',
-    expiryDate: 'Aug 8, 2025',
-    issuedDate: 'Jul 24, 2024',
-    status: 'Expiring Soon',
-    manager: 'Esther Howard',
-    managerAvatar: 'https://images.pexels.com/photos/3867220/pexels-photo-3867220.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    managerInitials: 'OM'
-  },
-  {
-    id: '2',
-    name: 'Jane Smith',
-    avatar: 'https://images.pexels.com/photos/3866555/pexels-photo-3866555.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    certificate: 'Project Manag',
-    expiryDate: 'Jul 14, 2025',
-    issuedDate: 'Jul 24, 2023',
-    status: 'Expired',
-    manager: 'Jenny Wilson',
-    managerAvatar: 'https://images.pexels.com/photos/3866549/pexels-photo-3866549.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
-  },
-  {
-    id: '3',
-    name: 'Robert Wilson',
-    avatar: 'https://images.pexels.com/photos/2474307/pexels-photo-2474307.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    certificate: 'Google Analy',
-    expiryDate: 'Jul 24, 2026',
-    issuedDate: 'Apr 24, 2025',
-    status: 'Active',
-    manager: 'Darrell Steward',
-    managerAvatar: 'https://images.pexels.com/photos/3866554/pexels-photo-3866554.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
-  },
-  {
-    id: '4',
-    name: 'Emily Davis',
-    avatar: 'https://images.pexels.com/photos/3866623/pexels-photo-3866623.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    certificate: 'Certified Scrum',
-    expiryDate: 'Aug 18, 2025',
-    issuedDate: 'Nov 24, 2024',
-    status: 'Expiring Soon',
-    manager: 'Albert Flores',
-    managerAvatar: 'https://images.pexels.com/photos/3867219/pexels-photo-3867219.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
-  },
-  {
-    id: '5',
-    name: 'Michael Thompson',
-    avatar: 'https://images.pexels.com/photos/3866549/pexels-photo-3866549.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    certificate: 'AWS Solutions',
-    expiryDate: 'Jun 24, 2025',
-    issuedDate: 'Jul 24, 2024',
-    status: 'Expired',
-    manager: 'Guy Hawkins',
-    managerAvatar: 'https://images.pexels.com/photos/3866544/pexels-photo-3866544.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    managerInitials: 'OM'
-  },
-  {
-    id: '6',
-    name: 'Michael Thompson',
-    avatar: 'https://images.pexels.com/photos/3866549/pexels-photo-3866549.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    certificate: 'AWS Solutions',
-    expiryDate: 'Jun 24, 2025',
-    issuedDate: 'Jul 24, 2024',
-    status: 'Expired',
-    manager: 'Ronald Richards',
-    managerAvatar: 'https://images.pexels.com/photos/3866555/pexels-photo-3866555.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
-  },
-  {
-    id: '7',
-    name: 'Michael Thompson',
-    avatar: 'https://images.pexels.com/photos/3866549/pexels-photo-3866549.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    certificate: 'AWS Solutions',
-    expiryDate: 'Jun 24, 2025',
-    issuedDate: 'Jul 24, 2024',
-    status: 'Expired',
-    manager: 'Ralph Edwards',
-    managerAvatar: 'https://images.pexels.com/photos/3866554/pexels-photo-3866554.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
-  },
-  {
-    id: '8',
-    name: 'Michael Thompson',
-    avatar: 'https://images.pexels.com/photos/3866549/pexels-photo-3866549.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-    certificate: 'AWS Solutions',
-    expiryDate: 'Jun 24, 2025',
-    issuedDate: 'Jul 24, 2024',
-    status: 'Expired',
-    manager: 'Floyd Miles',
-    managerAvatar: 'https://images.pexels.com/photos/3866623/pexels-photo-3866623.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
-  }
-];
 
 function App() {
   const [columns, setColumns] = useState<Column[]>([
